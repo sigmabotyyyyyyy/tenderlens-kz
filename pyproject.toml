@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tenderlens-kz"
+version = "0.1.0"
+description = "Explainable price anomaly analysis for procurement data"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["pandas==3.0.6", "streamlit==1.66.0", "altair==6.3.0", "requests==2.34.2", "pypdf==6.10.0"]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1"]
+
+[project.scripts]
+tenderlens = "tenderlens.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["tenderlens*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
